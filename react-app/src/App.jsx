@@ -51,7 +51,7 @@ const localProviderUrl = targetNetwork.rpcUrl;
 // as you deploy to other networks you can set REACT_APP_PROVIDER=https://dai.poa.network in packages/react-app/.env
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 if(DEBUG) console.log("🏠 Connecting to provider:", localProviderUrlFromEnv);
-const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
+const localProvider = new JsonRpcProvider("https://kovan.infura.io/v3/" + INFURA_ID);
 
 // 🔭 block explorer URL
 const blockExplorer = targetNetwork.blockExplorer;
@@ -108,6 +108,7 @@ function App(props) {
   //
   // Then read your DAI balance like:
   //const myMainnetBalance = useContractReader({DAI: mainnetDAIContract},"DAI", "balanceOf",["0x34aA3F359A9D614239015126635CE7732c18fDF3"])
+  //console.log("💲 myMainnetBalance:",myMainnetBalance)
   //
 
   // keep track of a variable from the contract in the local React state:
@@ -140,7 +141,7 @@ function App(props) {
     )
   }else{
     networkDisplay = (
-      <div style={{zIndex:2, position:'absolute', right:154,top:28,padding:16,color:targetNetwork.color}}>
+      <div style={{zIndex:-1, position:'absolute', right:154,top:28,padding:16,color:targetNetwork.color}}>
         {targetNetwork.name}
       </div>
     )
@@ -219,21 +220,7 @@ function App(props) {
               blockExplorer={blockExplorer}
             />
             <Contract
-              name="exchangeToken"
-              signer={userProvider.getSigner()}
-              provider={localProvider}
-              address={address}
-              blockExplorer={blockExplorer}
-            />
-            <Contract
               name="Vendor"
-              signer={userProvider.getSigner()}
-              provider={localProvider}
-              address={address}
-              blockExplorer={blockExplorer}
-            />
-            <Contract
-              name="newToken"
               signer={userProvider.getSigner()}
               provider={localProvider}
               address={address}

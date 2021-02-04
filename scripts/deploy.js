@@ -11,10 +11,10 @@ const main = async () => {
 
 
   const yourContract = await deploy("YourContract") // <-- add in constructor args like line 19 vvvv
-  const exchangeToken = await deploy("exchangeToken")
-  const newToken = await deploy("newToken")
   const vendor = await deploy("Vendor", [yourContract.address])
-  await newToken.connect(vendor).transfer(address, _value)
+  await yourContract.transfer(vendor.address,utils.parseEther("10"))
+
+
   //const secondContract = await deploy("SecondContract")
 
   // const exampleToken = await deploy("ExampleToken")
@@ -27,10 +27,10 @@ const main = async () => {
   //If you want to send value to an address from the deployer
   const deployerWallet = ethers.provider.getSigner()
   await deployerWallet.sendTransaction({
-    to: "0x9A676e781A523b5d0C0e43731313A708CB607508",
+    to: "0x34aA3F359A9D614239015126635CE7732c18fDF3",
     value: ethers.utils.parseEther("0.001")
   })
-
+  */
 
 
   /*
@@ -116,6 +116,10 @@ const readArgsFile = (contractName) => {
   }
   return args;
 };
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 main()
   .then(() => process.exit(0))
