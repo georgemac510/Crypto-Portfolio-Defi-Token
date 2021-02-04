@@ -1,29 +1,18 @@
-pragma solidity >=0.6.0 <0.7.0;
+pragma solidity 0.6.7;
 //SPDX-License-Identifier: MIT
 
-import "hardhat/console.sol";
-//import "@openzeppelin/contracts/token/ERC20/ERC20.sol"; //https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol
+//import "hardhat/console.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol"; //https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol
 
-contract YourContract {
+contract YourContract is ERC20{
 
-  event SetPurpose(address sender, string purpose);
-
-  string public purpose = "Programming Unstoppable Money";
-
-  //uint8 public counter =1;
-
-  //function dec() public {
-    //counter--1;
-  //}
-
-  constructor() public {
+  constructor() public ERC20("ExchangeTradedToken", "EXTT") {
     // what should we do on deploy?
-  }
-
-  function setPurpose(string memory newPurpose) public {
-    purpose = newPurpose;
-    console.log(msg.sender,"set purpose to",purpose);
-    emit SetPurpose(msg.sender, purpose);
+    _mint(msg.sender,10 ether);
   }
 
 }
+
+
+
+//Kovan token address: 0x607583a575E0F1317b47c82E1651fF3064A810EA
