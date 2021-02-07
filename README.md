@@ -6,7 +6,13 @@ Using Scaffold-ETH, we were able to create and deploy an exchange traded token (
 ![alt text] (https://github.com/georgemac510/Crypto-Portfolio-Defi-Token/blob/main/exchange-token.surge.sh.png)
 
 
-
 We have also listed locally our token Exchange Traded Token (EXTT) on the Aave Lender platform through Scaffold-ETH.
 
 ![alt text]  (https://github.com/georgemac510/Crypto-Portfolio-Defi-Token/blob/main/Aave_Lender.png)
+
+Directions for creating and deploying the token and using Surge to create a URL for the token can be found at:
+https://github.com/austintgriffith/scaffold-eth
+
+Directions for installing and running the Aave Lending platform can be found at: https://github.com/austintgriffith/scaffold-eth/tree/lender
+
+Many thanks to Austin Griffith and Adam Fuller for their help, support and guidance. 
